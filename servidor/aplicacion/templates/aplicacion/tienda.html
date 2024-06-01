@@ -1,0 +1,102 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block content %}
+
+      <div id="contenedor-productos" class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="producto c-img">
+                    <h3>La Gioconda</h3>
+                    <img src="https://content.cdnprado.net/imagenes/Usuarios/ImagenesCKEditor/5ea1b701-d881-46f9-a820-b25894330e24/4c98229b-e466-4345-ae86-487cc5a82d7f.jpg" class="d-block w-100 c-img2" alt="Monalisa">
+                    <p>Precio: $50</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="producto">
+                    <h3>Les Demoiselles d'Avignon</h3>
+                    <img src="https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVzLWRlbW9pc2VsbGVzLWQtYXZpZ25vbi5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.FMxSGG8oEgVFUT0nk8kJm2IK82wjFhYNrnPiqG_ofSc.webp" class="d-block w-100 c-img2" alt="Demoiselles d'Avignon">
+                    <p>Precio: $60</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="producto">
+                    <h3>La persistencia de la memoria</h3>
+                    <img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dfd9cc-665c-46ee-8762-fa68450480e9_750x542"  class="d-block w-100 c-img2" alt="La persistencia de la memoria">
+                    <p>Precio: $70</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div>
+          <button onclick="agregarAlCarrito('Cuadro 1 - Monalisa', 50)" class="btn btn-primary">Agregar al carrito</button>
+          <button onclick="agregarAlCarrito('Cuadro 2 - Demoiselles d\'Avignon', 60)" class="btn btn-primary">Agregar al carrito</button>
+          <button onclick="agregarAlCarrito('Cuadro 3 - La persistencia de la memoria', 70)" class="btn btn-primary">Agregar al carrito</button>
+        </div>
+        
+      </div>
+      
+
+
+      <div id="carrito" class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-12">
+                  <h3>Carrito de compras</h3>
+                  <div id="lista-compra"></div>
+                  <div class="text-center">
+                      <button onclick="procesarCompra()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCompra">Comprar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Modal de compra -->
+      <div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="modalCompraLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalCompraLabel">Compra Exitosa!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Tu compra ha sido procesada con éxito.</p>
+              <p>Total: $<span id="total"></span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+          let carrito = [];
+
+          function agregarAlCarrito(nombre, precio) {
+              carrito.push({ nombre: nombre, precio: precio });
+              actualizarCarrito();
+          }
+
+          function actualizarCarrito() {
+              let listaCompraDiv = document.getElementById('lista-compra');
+              let total = 0;
+              listaCompraDiv.innerHTML = '';
+              carrito.forEach(item => {
+                  listaCompraDiv.innerHTML += `<p>${item.nombre} - $${item.precio}</p>`;
+                  total += item.precio;
+              });
+              document.getElementById('total').innerText = total;
+          }
+
+          function procesarCompra() {
+              console.log("Compra procesada:", carrito);
+              actualizarCarrito();
+              carrito = [];
+          }
+      </script>
+
+{% endblock %}
+
+</body>
+</html>
