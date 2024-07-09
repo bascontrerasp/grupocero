@@ -254,10 +254,10 @@
 </div>
 
 <script>
-    // MODAL QUE APAREZCA CADA VEZ QUE EXISTA UN MENSAJE QUE MOSTRAR
+
 window.onload = function() {
   var mensaje = "{{ mensaje }}";
-  if(mensaje.trim() !== ""){  // Verifica que mensaje no esté vacío después de quitar espacios en blanco
+  if(mensaje.trim() !== ""){ 
     var myModal = new bootstrap.Modal(document.getElementById('mensajeModal'), {});
     myModal.show();
   }
