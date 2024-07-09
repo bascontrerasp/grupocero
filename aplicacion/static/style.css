@@ -200,3 +200,32 @@ hr{
     height: auto;
 }
 
+#hora-actual {
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: bold;
+    margin-left: 800px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 360px) {
+    #hora-actual {
+        margin-left: 0;
+        margin-top: 10px; /* Ajusta según sea necesario */
+    }
+    
+    .pie2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    #hora-actual {
+        text-align: center;
+        width: 100%;
+    }
+}
