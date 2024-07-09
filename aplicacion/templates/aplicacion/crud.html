@@ -1,0 +1,41 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Página principal{% endblock %}
+
+{% block content %}
+    <br>
+        <div style="text-align: center; margin-top: 50px; font-family: 'Times New Roman'">
+            <H1>LISTA CLIENTES</H1>
+            <br>
+            
+            <button type="button">
+                <a href="{% url 'cliente_add' %}">Añadir</a>
+            </button>
+
+            <button type="button">
+                <a href="{% url 'crud_ciudades' %}">Lista ciudades</a>
+            </button>
+            <table style="margin-top: 5px;" class="table table-success table-striped">
+                    {% if clientes %}
+                        <th>RUT</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Ciudad</th>
+                        <th>Eliminar</th>
+                        <th>Modificar</th>
+                        {%for cliente in clientes%} 
+                            <tr>
+                                <td> {{cliente.rut}}
+                                <td> {{cliente.nombre}}
+                                <td> {{cliente.email}}
+                                <td> {{cliente.telefono}}
+                                <td> {{cliente.id_ciudad}}</td>
+                                <td> <a href="{% url 'cliente_del' pk=cliente.rut %}">Eliminar</a>
+                                <td> <a href="{% url 'cliente_findEdit' pk=cliente.rut %}">Modificar</a>     
+                            </tr>  
+                    {% endfor %}
+                {% endif %}
+                </table>
+        </div>
+{% endblock %}

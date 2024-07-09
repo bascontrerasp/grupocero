@@ -1,0 +1,15 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Página principal{% endblock %}
+
+{% block content %}
+<body>
+    <div style="text-align: center; font-family: 'Times New Roman', Times, serif; margin-top: 100px;">  
+    <h2>Log In</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+    </div>
+    {% endblock %}

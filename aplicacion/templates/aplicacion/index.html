@@ -1,0 +1,67 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Página principal{% endblock %}
+
+{% block content %}
+      <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <img src="https://content.cdnprado.net/imagenes/Usuarios/ImagenesCKEditor/5ea1b701-d881-46f9-a820-b25894330e24/4c98229b-e466-4345-ae86-487cc5a82d7f.jpg" class="d-block w-100 c-img" alt="monalisa" onclick="window.open('monalisa.html', '_blank');">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>La Gioconda</h4>
+              <p>Leonardo Da Vinci, circa 1512.</p>
+            </div>   
+          </div>
+          <div class="carousel-item c-item">
+            <img src="https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVzLWRlbW9pc2VsbGVzLWQtYXZpZ25vbi5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.FMxSGG8oEgVFUT0nk8kJm2IK82wjFhYNrnPiqG_ofSc.webp" class="d-block w-100 c-img" alt="demosilles"  onclick="window.open('demoiselles.html', '_blank');">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Les Demoiselles d'Avignon</h4>
+              <p>Pablo Picasso, 1907.</p>
+            </div>
+          </div>
+          <div class="carousel-item c-item">
+            <img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dfd9cc-665c-46ee-8762-fa68450480e9_750x542" class="d-block w-100 c-img" alt="clocks" onclick="window.open('clocks.html', '_blank');">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>La persistencia de la memoria</h4>
+              <p>Salvador Dalí, 1936.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div> <h2 class="pie"> Grupo  zero</h2></div>
+      <div><ul class="nav pie2">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'terminos' %}">Politicas de privacidad</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'terminos' %}">Terminos de uso</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacto</a>
+        </li>
+        <li class="nav-item"></li>
+        </li>
+        <div id="hora-actual"></div>
+        
+       
+<script src="popovers.js"></script>
+<script src="api.js"></script>
+
+{% endblock %}
+
+</body>
+</html>

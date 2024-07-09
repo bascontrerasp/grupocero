@@ -1,0 +1,40 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block content %}
+
+    <div style="text-align: center; margin-top: 100px; font-family: 'Times New Roman'">
+        {% if cliente %}
+        <H1>EDITAR CLIENTE</H1>
+        <br>
+        <form action="{% url 'cliente_update' %}" method="POST"> 
+            
+            {% csrf_token %}
+            
+            <pre>Rut:           <input type="text" name="rut" value="{{cliente.rut}}"></pre>
+            <pre>Nombre:        <input type="text" name="nombre" value="{{cliente.nombre}}"></pre>
+            <pre>Email:         <input type="mail" name="email" value="{{cliente.email}}"></pre>
+            <pre>Teléfono       <input type="text" name="telefono" value="{{cliente.telefono}}"></pre>
+            <pre>Ciudad:        <select name="ciudad">
+                {% for ciudad in ciudades %}
+                    {% if ciudad.ciudad == cliente.id_ciudad.ciudad %}
+                        <option value="{{ciudad.id_ciudad}}" selected>{{ciudad.ciudad}}</option>
+                    {% else %}
+                        <option value="{{ciudad.id_ciudad}}">{{ciudad.ciudad}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select></pre> 
+            <input type="submit" value="Actualizar">
+
+        </form> <br>
+        {% endif %}
+        <a href="{% url 'perfil' %}">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+            {{mensaje}}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html> 

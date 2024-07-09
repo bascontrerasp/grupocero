@@ -1,0 +1,11 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Acceso Denegado{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 100px; font-family: 'Times New Roman';">
+    <h2>Acceso Denegado</h2>
+    <p>No tienes los permisos necesarios para acceder a esta página.</p>
+    <a href="{% url 'index' %}" class="btn btn-primary">Volver al Inicio</a>
+</div>
+{% endblock %}

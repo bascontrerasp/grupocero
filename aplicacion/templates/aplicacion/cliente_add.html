@@ -1,0 +1,58 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Añadir Cliente{% endblock %}
+
+{% block content %}
+
+<div class="container" style="text-align: center; margin-top: 100px; font-family: 'Times New Roman';">
+    <h2>FORMULARIO CLIENTE</h2>
+    <form action="{% url 'cliente_add' %}" method="POST">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="rut" class="form-label">RUT:</label>
+                    <input type="text" class="form-control" id="rut" name="rut" value="{{ rut_value }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ nombre_value }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ email_value }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono:</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" value="{{ telefono_value }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ciudad" class="form-label">Ciudad:</label>
+                    <select class="form-control" id="ciudad" name="ciudad" required>
+                        {% for ciudad in ciudades %}
+                            <option value="{{ ciudad.id_ciudad }}"
+                                    {% if ciudad.id_ciudad == ciudad_id %} selected {% endif %}>
+                                {{ ciudad.ciudad }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+    <br>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            <div>{{ mensaje }}</div>
+        {% endif %}
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Volver</a>
+</div>
+
+{% endblock %}

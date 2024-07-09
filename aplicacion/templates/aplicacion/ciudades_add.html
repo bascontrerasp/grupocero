@@ -1,0 +1,26 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Página principal{% endblock %}
+
+{% block content %}
+
+    <div style="text-align: center; margin-top: 100px; font-family: 'Times New Roman'">
+        <h2>FORMULARIO CIUDADES</h2>
+        <form action="" method="POST">
+            <div style="font-family: 'Times New Roman'; font-size:large; margin-top: 15px;">
+            {% csrf_token %}
+            {{form.as_table}}
+            <button type="submit" value="Agregar" class="btn btn-primary">Añadir</button>
+            </div>
+        </form> 
+        <br>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %}
+        </div>
+        <a href="{% url 'crud_ciudades' %}">Volver</a>
+    </div>
+    
+{% endblock %}

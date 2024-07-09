@@ -1,0 +1,38 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block content %}
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="https://content.cdnprado.net/imagenes/Usuarios/ImagenesCKEditor/5ea1b701-d881-46f9-a820-b25894330e24/4c98229b-e466-4345-ae86-487cc5a82d7f.jpg" class="d-block w-100 c-img-cat"  href="{% url 'monalisa' %}" alt="monalisa">
+            <div class="card-body">
+              <h5 class="card-title">La Gioconda</h5>
+              <p class="card-text">Leonardo Da Vinci, circa 1512</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dfd9cc-665c-46ee-8762-fa68450480e9_750x542" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Relojes Blandos</h5>
+              <p class="card-text">Dalí, 1936</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVzLWRlbW9pc2VsbGVzLWQtYXZpZ25vbi5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.FMxSGG8oEgVFUT0nk8kJm2IK82wjFhYNrnPiqG_ofSc.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Las Señoritas de Avignon</h5>
+              <p class="card-text">Pablo Picasso 1907</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+</body>
+</html>

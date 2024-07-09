@@ -1,0 +1,42 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="perfil-fondo">
+  <div style="height: 100%; padding-top: 200px;">
+      <div class="perfil container">
+          <form class="row g-3 align-items-center justify-content-center" action="{% url 'cliente_update' %}" method="POST">
+              {% csrf_token %}
+              <!-- Inputs -->
+              <div class="col-md-6">
+                  <label for="nombreInput" class="form-label fontxperf">Nombre:</label>
+                  <input type="text" class="form-control" id="nombreInput" value="{{ cliente.nombre }}" disabled>
+              </div>
+              <div class="col-md-6">
+                  <label for="telefonoInput" class="form-label fontxperf">Teléfono:</label>
+                  <input type="text" class="form-control" id="telefonoInput" value="{{ cliente.telefono }}" disabled>
+              </div>
+              <div class="col-md-6">
+                  <label for="rutInput" class="form-label fontxperf">Rut:</label>
+                  <input type="text" class="form-control" id="rutInput" value="{{ cliente.rut }}" disabled>
+              </div>
+              <div class="col-md-6">
+                  <label for="emailInput" class="form-label fontxperf">Correo:</label>
+                  <input type="email" class="form-control" id="emailInput" value="{{ cliente.email }}" disabled>
+              </div>
+              <div class="col-md-6">
+                  <label for="ciudadInput" class="form-label fontxperf">Ciudad:</label>
+                  <input type="text" class="form-control" id="ciudadInput" value="{{ cliente.id_ciudad }}" disabled>
+              </div>
+              <!-- Botón para actualizar -->
+              <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-primary propbtn">Actualizar Datos</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</main>
+
+    
+
+{% endblock %}

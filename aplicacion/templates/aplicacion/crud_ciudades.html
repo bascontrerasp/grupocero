@@ -1,0 +1,35 @@
+{% extends 'aplicacion/base.html' %}
+
+{% block title %}Página principal{% endblock %}
+
+{% block content %}
+    <div style="text-align: center; margin-top: 100px; font-family: 'Times New Roman'">
+        <H1>LISTA CIUDADES</H1>
+        
+        <button type="button">
+            <a href="{% url 'ciudades_add' %}">Añadir</a>
+        </button>
+
+        <button type="button">
+            <a href="{% url 'crud' %}">Lista clientes</a>
+        </button>
+
+        <table style="margin-top: 5px;" class="table table-success table-striped">
+            {% if ciudades %}
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+                {%for ciudad in ciudades%} 
+                    <tr>
+                        <td> {{ciudad.id_ciudad}}
+                        <td> {{ciudad.ciudad}}
+                        
+                        <td> <a href="{% url 'ciudades_del' pk=ciudad.id_ciudad %}">Eliminar</a>
+                        <td> <a href="{% url 'ciudades_edit' pk=ciudad.id_ciudad %}">Modificar</a>     
+                    </tr>  
+            {% endfor %}
+          {% endif %}
+        </table>
+    </div>
+{% endblock %}
