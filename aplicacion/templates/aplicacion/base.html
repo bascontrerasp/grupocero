@@ -49,11 +49,29 @@
                       </ul>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'tienda' %}">Tienda</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-placement="bottom" data-bs-content="Contacta con nosotros!" data-bs-trigger="hover">Contacto</a>
-                  </li>
+                    <a class="nav-link" href="{% url 'tienda' %}">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal" data-bs-placement="bottom" data-bs-content="Contacta con nosotros!" data-bs-trigger="hover">Contacto</a>
+                </li>
+
+                  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Contactos:</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>+56 9 1234 5678</p>
+                                <p>grupocero@gmail.com</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                   <!-- Lógica para mostrar usuario autenticado -->
                   {% if request.session.cliente_email %}
@@ -101,9 +119,6 @@
           </div>
       </div>
   </nav>
-  
-  
-  
   
   <!-- Modal de inicio de sesión -->
 <div class="modal fade" id="ingresar" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
